@@ -1,0 +1,88 @@
+.box1{
+    background-image: url(https://preview.colorlib.com/theme/vegefoods/images/category-1.jpg);
+    background-position: center;
+    width: 350px;
+    height: 35vh;
+    background-size: cover;
+}
+
+.box12{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.box123{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+
+.box45{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+
+.box2{
+    background-image: url(https://preview.colorlib.com/theme/vegefoods/images/category-2.jpg);
+    background-position: center;
+    width: 350px;
+    height: 35vh;
+    background-size: cover;
+}
+
+.box3{
+    background-image: url(https://preview.colorlib.com/theme/vegefoods/images/category.jpg);
+    background-position: center;
+    width: 350px;
+    height: 73vh;
+    background-size: cover;
+}
+
+.box4{
+    background-image: url(https://preview.colorlib.com/theme/vegefoods/images/category-3.jpg);
+    background-position: center;
+    width: 350px;
+    height: 35vh;
+    background-size: cover;
+}
+
+.box5{
+    background-image: url(https://preview.colorlib.com/theme/vegefoods/images/category-4.jpg);
+    background-position: center;
+    width: 350px;
+    height: 35vh;
+    background-size: cover;
+}
+
+
+.boxs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+    gap:20px;
+}
+
+.box123{
+    display: flex;
+}
+
+@media(max-width:576px){
+    .boxdivs{
+        width: 100%;
+    }
+    .boxs{
+        width: 100%;
+    }
+
+    .box123{
+        flex-direction: column;
+    }
+
+    .boxs{
+        flex-direction: column;
+    }
+}

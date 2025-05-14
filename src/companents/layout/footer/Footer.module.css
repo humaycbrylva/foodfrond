@@ -1,0 +1,19 @@
+.footer{
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:5%;
+}
+
+.footerdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    p{
+        font-size: 20px;
+    }
+}

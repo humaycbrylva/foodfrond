@@ -1,0 +1,64 @@
+.cards{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.card{
+    width: 18%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 100%;
+        height: 70%;
+
+    }
+
+    span{
+        margin-top: 10px;
+        font-size: 18px;
+    }
+}
+.btns{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 13px 0px;
+}
+
+.sil{
+        width: 60%;
+        height: 30px;
+        font-size: 18px;
+        color: rgb(236, 172, 11);;
+        border: 2px solid  rgb(236, 172, 11);
+        background-color: white;
+        border-radius: 15px;
+        font-weight: 700;
+        
+    }
+    
+
+    .price{
+        color: rgb(236, 172, 11);
+        font-size: 21px;
+    }
+    
+    .des{
+        color: grey;
+        font-size: 18px;
+        line-height: 1.2;
+    }
+    
+    .title{
+        font-size: 24px;
+        font-weight: bold;
+        margin: 4px 0px;
+    }

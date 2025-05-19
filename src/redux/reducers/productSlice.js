@@ -58,11 +58,8 @@ const productSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(deleteProductThunk.fulfilled, (state, action) => {
-        if (state.products) {
-          state.products = state.products.filter(
-            (item) => item._id !== action.payload
-          );
-        }
+        state.loading=false
+        state.products= state.products.filter(product=> product._id!== action.payload)
       })
      
   },

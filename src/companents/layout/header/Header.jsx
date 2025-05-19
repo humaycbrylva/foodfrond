@@ -7,6 +7,10 @@ import { BsTelephone } from 'react-icons/bs'
 import { GiLetterBomb } from 'react-icons/gi'
 
 const Header = () => {
+
+    const basket = JSON.parse(localStorage.getItem('basket')) || []
+
+  let count = basket.reduce((a, b) => a + b.count, 0)
   return (
     <div className={styles.header}>
         <nav className={styles.navdiv1}>
@@ -29,7 +33,8 @@ const Header = () => {
             <div className={styles.links}>
                 <Link to='/' className={styles.link}>Home</Link>
                 <Link to='/formik' className={styles.link}>Admin</Link>
-                <Link to='/basket' className={styles.link}>Basket</Link>
+                <Link to='/basket' className={styles.link}>Basket
+                {count > 0 && <span className={styles.basketCount}> ({count})</span>}</Link>
                 <Link to='/favori' className={styles.link}>Favori</Link>
                 <Link className={styles.link}>Contact</Link>
                 <div className={styles.icon1}>

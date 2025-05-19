@@ -11,7 +11,7 @@ import FormCard from "../../companents/cards/formcard/FormCard";
 
 
 
-const Admin = ({ handleEdit }) => {
+const Admin = ({filterData}) => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.products.products);
@@ -32,8 +32,8 @@ const Admin = ({ handleEdit }) => {
 
   return (
     <div className={styles.formsdiv}>
-      {data && data.map(item => (
-        <FormCard key={item._id} item={item} handleDelete={handleDelete} handleEdit={() => handleEdit(item)} />
+      {filterData && filterData.map(item => (
+        <FormCard key={item._id} item={item} handleDelete={handleDelete} />
       ))}
     </div>
   )

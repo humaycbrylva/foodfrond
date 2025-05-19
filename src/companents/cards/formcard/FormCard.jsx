@@ -6,7 +6,6 @@ const FormCard = ({item,handleDelete}) => {
      <div className={styles.card} key={item._id}>
               <img src={item.image} alt="" />
               <span className={styles.price}>{item.price}</span>
-              <span className={styles.des}>{item.price}</span>
               <span className={styles.title}>{item.title}</span>
               <div className={styles.btns}>
               <button className={styles.del} onClick={() => handleDelete(item._id)}>Delete</button>

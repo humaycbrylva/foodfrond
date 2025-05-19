@@ -1,6 +1,6 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { postProductThunk} from '../../redux/reducers/productSlice';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductThunk, postProductThunk} from '../../redux/reducers/productSlice';
 import styles from './Admin.module.css';
 import Admin from './Admin';
 import { useFormik } from 'formik';
@@ -8,7 +8,10 @@ import * as Yup from 'yup';
 
 const Formik = () => {
   const dispatch = useDispatch();
-  
+  const [searchText, setSearchText] = useState('')
+  const data = useSelector(state => state.products.products)
+
+  const [sorted, setSorted] = useState("default")
 
 
   const validationSchema = Yup.object({
@@ -23,6 +26,21 @@ const Formik = () => {
       .required('price hissəsi boş ola bilməz'),
   });
 
+
+  useEffect(() => {
+    dispatch(getProductThunk())
+  }, [dispatch])
+
+  const filterData = data && data
+    .filter((item) =>
+      item.title.toLowerCase().includes(searchText.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sorted == "asc") return Number(a.price) - Number(b.price)
+      if (sorted == "desc") return Number(b.price) - Number(a.price)
+      return 0
+    })
+
   const formik = useFormik({
     initialValues: {
       image: '',
@@ -36,18 +54,18 @@ const Formik = () => {
     }
   });
 
-  const handleEdit = (item) => {
-    setEditItemId(item._id);
-    formik.setValues({
-      image: item.image || '',
-      price: item.price || '',
-      title: item.title || '',
-      
-    });
-  };
+  
 
   return (
     <div className={styles.formsdivs}>
+    <div className={styles.inp}>
+        <input type="text" value={searchText} onChange={(e) => setSearchText(e.target.value)} name="" id="" />
+
+      <button  className={styles.bto} onClick={() => setSorted("asc")}>ASC</button>
+      <button className={styles.bto} onClick={() => setSorted("desc")}>DESC</button>
+      <button className={styles.bto} onClick={() => setSorted("default")}>Default</button>
+
+      </div>
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.forms}>
 
@@ -112,7 +130,7 @@ const Formik = () => {
       </form>
 
 
-      <Admin handleEdit={handleEdit} />
+      <Admin filterData={filterData} />
     </div>
   );
 };

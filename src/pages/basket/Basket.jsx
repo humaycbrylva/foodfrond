@@ -27,8 +27,7 @@ const Basket = () => {
   };
 
   const removeFromBasket = (item) => {
-    const updatedBasket = basket
-      .map(x => {
+    const updatedBasket = basket.map(x => {
         if (x._id === item._id) {
           return { ...x, count: x.count - 1 };
         }
@@ -42,6 +41,8 @@ const Basket = () => {
     const updatedBasket = basket.filter(x => x._id !== item._id);
     updateLocalStorage(updatedBasket);
   };
+
+  
 
   return (
     <div className={styles.cards}>
